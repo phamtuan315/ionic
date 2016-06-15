@@ -40,4 +40,12 @@ app.controller('PredictionController', function ($scope) {
 	];
 
 	$scope.prediction = "Tap 8ball for an answer";
+  $scope.ask=function(){
+    console.log( "click");
+    console.log( Math.random());
+    console.log(predictionList.length);
+
+    $scope.prediction=predictionList[Math.floor(Math.random()*predictionList.length)]
+    console.log( $scope.prediction)
+  }
 });

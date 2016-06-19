@@ -18,8 +18,8 @@ app.controller('SoundBoardCtrl', function ($scope,$window) {
 	$scope.media = null;
 
 	$scope.model = {
-		showDelete: false,
-		showMove: false,
+		showDelete: true,
+		showMove: true,
 		sounds: [
 			{
 				'title': 'Cow',
@@ -86,7 +86,19 @@ app.controller('SoundBoardCtrl', function ($scope,$window) {
       $scope.media.load();
       $scope.media.play();
     }
-
 	};
+  $scope.deleteItem=function(index){
+    console.log(index);
+    $scope.model.sounds.splice(index,1);
+    };
+  $scope.moveItem=function(sound,fromIndex,toIndex)
+  {
+    console.log(fromIndex);
+    console.log(toIndex);
+    $scope.model.sounds.splice(fromIndex,1);
+    $scope.model.sounds.splice(toIndex,0,sound);
+
+  };
+
 });
 
